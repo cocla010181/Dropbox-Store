@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropbox Store - Dropbox Giá Gốc</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Định nghĩa màu Dropbox chính và các biến thể */
+        :root {
+            --dropbox-blue: #0061ff; /* Màu xanh Dropbox chủ đạo */
+            --dropbox-blue-dark: #004dc9; /* Tông màu tối hơn cho hiệu ứng */
+            --glass-bg: rgba(255, 255, 255, 0.08); /* Nền kính mờ */
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            /* Nền màu xanh Dropbox bóng bẩy hơn với gradient nhẹ và hiệu ứng "kính" */
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 97, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 120, 255, 0.05) 0%, transparent 40%),
+                linear-gradient(135deg, #0056e0 0%, var(--dropbox-blue) 100%);
+            background-attachment: fixed;
+            color: #f0f7ff; /* Chữ màu sáng trên nền xanh */
+        }
+
+        /* Lớp phủ hiệu ứng kính mờ (Glassmorphism) */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hiệu ứng bóng bẩy cho các nút */
+        .glossy-btn {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #3385ff 0%, var(--dropbox-blue) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glossy-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+        .glossy-btn:hover::after {
+            left: 100%;
+        }
+        .glossy-btn:hover {
+            background: linear-gradient(180deg, #4d94ff 0%, var(--dropbox-blue-dark) 100%);
+            box-shadow: 0 5px 15px rgba(0, 97, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- Header / Navigation -->
+    <header id="main-header" class="glass-card sticky top-0 z-50 border-b transition-transform duration-300">
+        <div class="max-w-7xl px-4 py-4 flex justify-between items-center mx-auto">
+            <div class="flex items-center space-x-2">
+                <i class="fab fa-dropbox text-white text-5xl"></i>
+                <span class="text-xl font-bold tracking-tight text-white">Dropbox <span class="text-white">Store</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#san-pham" class="text-blue-100 hover:text-white transition">Sản Phẩm</a>
+                <a href="#quy-trinh" class="text-blue-100 hover:text-white transition">Quy Trình</a>
+                <a href="#luu-y" class="text-blue-100 hover:text-white transition">Lưu Ý</a>
+                <a href="#lien-he" class="text-blue-100 hover:text-white transition">Liên Hệ</a>
+            </nav>
+            <div>
+                <a href="https://t.me/dropboxgiagoc?direct" target="_blank" class="block w-full text-center glossy-btn text-white font-medium py-2.5 px-6 rounded-xl transition shadow-sm text-sm">
+                         Liên Hệ Ngay
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="bg-white/10 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider border border-white/10">Uy Tín - Bảo Hành 1:1</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mt-5 tracking-tight leading-tight">
+                Chuyên Cung Cấp Tài Khoản<br> Dropbox Giá Tốt
+            </h1>
+            <p class="text-lg text-blue-100 mt-6 max-w-2xl mx-auto leading-relaxed">
+                Nâng cấp tài khoản chính chủ, hoặc add tài khoản khách vô Fam và Team. Dung lượng lưu trữ cực khủng với giá tiết kiệm lên đến <strong class="text-white">70%</strong> so với mua trực tiếp.
+            </p>
+            <div class="mt-10 flex justify-center space-x-4">
+                <a href="#san-pham" class="glossy-btn text-white px-8 py-3.5 rounded-xl font-medium transition shadow-lg">
+                    Xem bảng giá
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="san-pham" class="max-w-7xl mx-auto px-4 py-16">
+        <div class="text-center mb-14">
+            <h2 class="text-4xl font-bold text-white">Danh Sách Sản Phẩm Có Sẵn</h2>
+            <p class="text-blue-100 mt-3 max-w-md mx-auto">Chọn gói dung lượng phù hợp với nhu cầu lưu trữ và làm việc của bạn</p>
+        </div>
+
+        <!-- Grid Sản phẩm -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Gói 1 -->
+            <div class="glass-card rounded-2xl hover:shadow-2xl transition-all duration-300 p-7 relative flex flex-col justify-between border-blue-400/30 hover:border-blue-400/60 transform hover:-translate-y-1">
+                <span class="absolute -top-3 right-6 glossy-btn text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Slot add family</span>
+                <div>
+                    <div class="flex justify-between items-start">
+                        <span class="p-3 bg-white/5 text-white rounded-xl border border-white/10"><i class="fas fa-cloud text-2xl"></i></span>
+                        <span class="bg-green-500/20 text-green-200 text-xs font-medium px-2.5 py-0.5 rounded border border-green-500/30">Sẵn hàng</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mt-5 text-white">Dropbox Family Add Fam</h3>
+                    <p class="text-blue-100 text-sm mt-1.5">Hạn dùng: 1 Năm (Tài khoản chính chủ add Fam)</p>
+                    
+                    <div class="my-7 py-4 border-y border-white/5">
+                        <span class="text-4xl font-black text-white">300.000đ</span>
+                        <span class="text-blue-200 line-through text-base ml-2">60.00$</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-sm text-blue-50">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> 500 GB Dung lượng cá nhân</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Tốc độ sync tối đa</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Bảo hành 12 tháng 1 đổi 1</li>
+                    </ul>
+                </div>
+                <div class="mt-9">
+                    <a href="https://t.me/dropboxgiagoc?direct" target="_blank" class="block w-full text-center glossy-btn text-white font-medium py-3.5 px-4 rounded-xl transition shadow-sm">
+                        Mua Gói Này
+                    </a>
+                </div>
+            </div>
+
+            <!-- Gói 2 -->
+            <div class="glass-card rounded-2xl hover:shadow-2xl transition-all duration-300 p-7 relative flex flex-col justify-between border-blue-400/30 hover:border-blue-400/60 transform hover:-translate-y-1">
+                <span class="absolute -top-3 right-6 glossy-btn text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Gói cá nhân</span>
+                 <div>
+                    <div class="flex justify-between items-start">
+                        <span class="p-3 bg-white/5 text-white rounded-xl border border-white/10"><i class="fas fa-cloud text-2xl"></i></span>
+                        <span class="bg-green-500/20 text-green-200 text-xs font-medium px-2.5 py-0.5 rounded border border-green-500/30">Sẵn hàng</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mt-5 text-white">Dropbox Plus 2TB</h3>
+                    <p class="text-blue-100 text-sm mt-1.5">Hạn dùng: 1 Năm (Tài khoản chính chủ hoặc cấp sẳn)</p>
+                    
+                    <div class="my-7 py-4 border-y border-white/5">
+                        <span class="text-4xl font-black text-white">800.000đ</span>
+                        <span class="text-blue-200 line-through text-base ml-2">119.88$</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-sm text-blue-50">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> 2,000 GB Dung lượng cá nhân</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Tốc độ sync tối đa</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Bảo hành 12 tháng 1 đổi 1</li>
+                    </ul>
+                </div>
+                <div class="mt-9">
+                    <a href="https://t.me/dropboxgiagoc?direct" target="_blank" class="block w-full text-center glossy-btn text-white font-medium py-3.5 px-4 rounded-xl transition shadow-sm">
+                        Mua Gói Này
+                    </a>
+                </div>
+            </div>
+
+            <!-- Gói 3 -->
+            <div class="glass-card rounded-2xl hover:shadow-2xl transition-all duration-300 p-7 relative flex flex-col justify-between border-blue-400/30 hover:border-blue-400/60 transform hover:-translate-y-1">
+                <span class="absolute -top-3 right-6 glossy-btn text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Gói gia đình</span>
+                <div>
+                    <div class="flex justify-between items-start">
+                        <span class="p-3 bg-white/5 text-white rounded-xl border border-white/10"><i class="fas fa-cloud text-2xl"></i></span>
+                        <span class="bg-green-500/20 text-green-200 text-xs font-medium px-2.5 py-0.5 rounded border border-green-500/30">Sẵn hàng</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mt-5 text-white">Dropbox Family 2TB</h3>
+                    <p class="text-blue-100 text-sm mt-1.5">Hạn dùng: 1 Năm (Tài khoản chính chủ hoặc cấp sẳn)</p>
+                    
+                    <div class="my-7 py-4 border-y border-white/5">
+                        <span class="text-4xl font-black text-white">1.500.000đ</span>
+                        <span class="text-blue-200 line-through text-base ml-2">203.88$</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-sm text-blue-50">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> 2,000 GB Dung lượng cho 6 người</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Tốc độ sync tối đa</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Bảo hành 12 tháng 1 đổi 1</li>
+                    </ul>
+                </div>
+                <div class="mt-9">
+                    <a href="https://t.me/dropboxgiagoc?direct" target="_blank" class="block w-full text-center glossy-btn text-white font-medium py-3.5 px-4 rounded-xl transition shadow-sm">
+                        Mua Gói Này
+                    </a>
+                </div>
+            </div>
+
+            <!-- Gói 4 -->
+            <div class="glass-card rounded-2xl hover:shadow-2xl transition-all duration-300 p-7 relative flex flex-col justify-between border-blue-400/30 hover:border-blue-400/60 transform hover:-translate-y-1">
+                <span class="absolute -top-3 right-6 glossy-btn text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Slot add team</span>
+                <div>
+                    <div class="flex justify-between items-start">
+                        <span class="p-3 bg-white/5 text-white rounded-xl border border-white/10"><i class="fas fa-cloud text-2xl"></i></span>
+                        <span class="bg-green-500/20 text-green-200 text-xs font-medium px-2.5 py-0.5 rounded border border-green-500/30">Sẵn hàng</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mt-5 text-white">Dropbox Standard Add Team</h3>
+                    <p class="text-blue-100 text-sm mt-1.5">Hạn dùng: 1 Năm (Tài khoản chính chủ Add Team)</p>
+                    
+                    <div class="my-7 py-4 border-y border-white/5">
+                        <span class="text-4xl font-black text-white">600.000đ</span>
+                        <span class="text-blue-200 line-through text-base ml-2">120.00$</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-sm text-blue-50">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> 1,000 GB Dung lượng cá nhân</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Tốc độ sync tối đa</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Bảo hành 12 tháng 1 đổi 1</li>
+                    </ul>
+                </div>
+                <div class="mt-9">
+                    <a href="https://t.me/dropboxgiagoc?direct" target="_blank" class="block w-full text-center glossy-btn text-white font-medium py-3.5 px-4 rounded-xl transition shadow-sm">
+                        Mua Gói Này
+                    </a>
+                </div>
+            </div>
+
+            <!-- Gói 5 -->
+            <div class="glass-card rounded-2xl hover:shadow-2xl transition-all duration-300 p-7 relative flex flex-col justify-between border-blue-400/30 hover:border-blue-400/60 transform hover:-translate-y-1">
+                <span class="absolute -top-3 right-6 glossy-btn text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Slot add team</span>
+                <div>
+                    <div class="flex justify-between items-start">
+                        <span class="p-3 bg-white/5 text-white rounded-xl border border-white/10"><i class="fas fa-cloud text-2xl"></i></span>
+                        <span class="bg-green-500/20 text-green-200 text-xs font-medium px-2.5 py-0.5 rounded border border-green-500/30">Sẵn hàng</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mt-5 text-white">Dropbox 3TB Add Team</h3>
+                    <p class="text-blue-100 text-sm mt-1.5">Hạn dùng: 1 Năm (Tài khoản chính chủ Add Team)</p>
+                    
+                    <div class="my-7 py-4 border-y border-white/5">
+                        <span class="text-4xl font-black text-white">900.000đ</span>
+                        <span class="text-blue-200 line-through text-base ml-2">180.00$</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-sm text-blue-50">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> 3,000 GB Dung lượng cá nhân</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Tốc độ sync tối đa</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Bảo hành 12 tháng 1 đổi 1</li>
+                    </ul>
+                </div>
+                <div class="mt-9">
+                    <a href="https://t.me/dropboxgiagoc?direct" target="_blank" class="block w-full text-center glossy-btn text-white font-medium py-3.5 px-4 rounded-xl transition shadow-sm">
+                        Mua Gói Này
+                    </a>
+                </div>
+            </div>
+
+            <!-- Gói 6 -->
+            <div class="glass-card rounded-2xl hover:shadow-2xl transition-all duration-300 p-7 relative flex flex-col justify-between border-blue-400/30 hover:border-blue-400/60 transform hover:-translate-y-1">
+                <span class="absolute -top-3 right-6 glossy-btn text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Slot add team</span>
+                <div>
+                    <div class="flex justify-between items-start">
+                        <span class="p-3 bg-white/5 text-white rounded-xl border border-white/10"><i class="fas fa-cloud text-2xl"></i></span>
+                        <span class="bg-green-500/20 text-green-200 text-xs font-medium px-2.5 py-0.5 rounded border border-green-500/30">Sẵn hàng</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mt-5 text-white">Dropbox 5TB Add Team</h3>
+                    <p class="text-blue-100 text-sm mt-1.5">Hạn dùng: 1 Năm (Tài khoản chính chủ Add Team)</p>
+                    
+                    <div class="my-7 py-4 border-y border-white/5">
+                        <span class="text-4xl font-black text-white">1.500.000đ</span>
+                        <span class="text-blue-200 line-through text-base ml-2">288.00$</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-sm text-blue-50">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> 5,000 GB Dung lượng cá nhân</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Tốc độ sync tối đa</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2.5 text-base"></i> Bảo hành 12 tháng 1 đổi 1</li>
+                    </ul>
+                </div>
+                <div class="mt-9">
+                    <a href="https://t.me/dropboxgiagoc?direct" target="_blank" class="block w-full text-center glossy-btn text-white font-medium py-3.5 px-4 rounded-xl transition shadow-sm">
+                        Mua Gói Này
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Quy trình mua hàng -->
+    <section id="quy-trinh" class="bg-white/5 py-20 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <h2 class="text-4xl font-bold text-white">Quy Trình Giao Dịch</h2>
+                <p class="text-blue-100 mt-3 max-w-md mx-auto">Nhanh chóng, an toàn và bảo mật tuyệt đối</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl text-center border-blue-400/20 hover:border-blue-400/40 transition">
+                    <div class="w-16 h-16 glossy-btn text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6 shadow-lg">1</div>
+                    <h4 class="font-bold text-xl text-white">Chọn Gói & Liên Hệ</h4>
+                    <p class="text-blue-100 text-sm mt-3 leading-relaxed">Nhấn nút mua để liên hệ trực tiếp với chúng tôi.</p>
+                </div>
+                 <div class="glass-card p-8 rounded-2xl text-center border-blue-400/20 hover:border-blue-400/40 transition">
+                    <div class="w-16 h-16 glossy-btn text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6 shadow-lg">2</div>
+                    <h4 class="font-bold text-xl text-white">Thanh Toán & Nhận Acc</h4>
+                    <p class="text-blue-100 text-sm mt-3 leading-relaxed">Thanh toán qua Ngân hàng. Tài khoản sẽ được bàn giao sau 5 - 15 phút.</p>
+                </div>
+                 <div class="glass-card p-8 rounded-2xl text-center border-blue-400/20 hover:border-blue-400/40 transition">
+                    <div class="w-16 h-16 glossy-btn text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6 shadow-lg">3</div>
+                    <h4 class="font-bold text-xl text-white">Bảo Hành Định Kỳ</h4>
+                    <p class="text-blue-100 text-sm mt-3 leading-relaxed">Chúng tôi cam kết bảo hành đúng thời hạn, lỗi 1 đổi 1 ngay lập tức.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần Khách Hàng Cần Chú Ý (Mới thêm) -->
+    <section id="luu-y" class="max-w-7xl mx-auto px-4 py-20">
+        <div class="text-center mb-12">
+            <span class="bg-amber-500/20 text-amber-200 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-amber-400/30">
+                <i class="fas fa-bell mr-1.5"></i> Thông tin cần biết
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-4">Khách Hàng Cần Chú Ý Khi Gói Hết Hạn</h2>
+            <p class="text-blue-100 mt-4 max-w-3xl mx-auto leading-relaxed">
+                Khi gói Dropbox trả phí hết hạn và tài khoản tự động chuyển về gói <strong class="text-white">Dropbox Basic (gói miễn phí - 2 GB)</strong>, dữ liệu của bạn <strong class="text-white">không bị khóa hay xóa ngay lập tức</strong>. Tuy nhiên, tài khoản sẽ rơi vào trạng thái vượt dung lượng và bị giới hạn tính năng:
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Mục 1: Dữ liệu hiện có -->
+            <div class="glass-card rounded-2xl p-7 border-green-400/30 hover:border-green-400/50 transition flex flex-col">
+                <div class="flex items-center space-x-3.5 mb-6">
+                    <span class="w-12 h-12 rounded-xl bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-300 text-xl shrink-0">
+                        <i class="fas fa-shield-alt"></i>
+                    </span>
+                    <h3 class="text-xl font-bold text-white">1. Dữ liệu hiện có</h3>
+                </div>
+                <ul class="space-y-4 text-sm text-blue-50 leading-relaxed flex-1">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-400 mt-1 mr-3 shrink-0"></i>
+                        <div>
+                            <strong class="text-white">Không bị xóa:</strong> Toàn bộ file hiện có trên Dropbox của bạn vẫn được giữ nguyên vẹn.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-400 mt-1 mr-3 shrink-0"></i>
+                        <div>
+                            <strong class="text-white">Vẫn xem và tải về bình thường:</strong> Bạn vẫn có thể đăng nhập vào web, xem tài liệu, xem ảnh hoặc tải các tệp tin này về máy tính bất cứ lúc nào.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mục 2: Các tính năng bị tạm dừng -->
+            <div class="glass-card rounded-2xl p-7 border-amber-400/30 hover:border-amber-400/50 transition flex flex-col">
+                <div class="flex items-center space-x-3.5 mb-6">
+                    <span class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-300 text-xl shrink-0">
+                        <i class="fas fa-pause-circle"></i>
+                    </span>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">2. Tính năng tạm dừng</h3>
+                        <span class="text-xs text-amber-200/90">(Do vượt quá 2 GB)</span>
+                    </div>
+                </div>
+                <ul class="space-y-4 text-sm text-blue-50 leading-relaxed flex-1">
+                    <li class="flex items-start">
+                        <i class="fas fa-ban text-amber-400 mt-1 mr-3 shrink-0"></i>
+                        <div>
+                            <strong class="text-white">Không thể tải lên file mới:</strong> Bạn không thể upload thêm bất kỳ dữ liệu nào lên Dropbox.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-ban text-amber-400 mt-1 mr-3 shrink-0"></i>
+                        <div>
+                            <strong class="text-white">Ngừng đồng bộ hóa:</strong> Dropbox trên máy tính, điện thoại sẽ lập tức dừng đồng bộ. Các file mới tạo hoặc chỉnh sửa trên thiết bị sẽ không được tải lên đám mây và ngược lại.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-ban text-amber-400 mt-1 mr-3 shrink-0"></i>
+                        <div>
+                            <strong class="text-white">Không thể nhận thư mục chia sẻ:</strong> Bạn không thể tham gia vào các Shared Folder mới nếu thư mục đó khiến dung lượng tài khoản tiếp tục vượt mức.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mục 3: Lưu ý quan trọng về chính sách xóa tài khoản không hoạt động -->
+            <div class="glass-card rounded-2xl p-7 border-red-400/30 hover:border-red-400/50 transition flex flex-col">
+                <div class="flex items-center space-x-3.5 mb-6">
+                    <span class="w-12 h-12 rounded-xl bg-red-500/20 border border-red-500/30 flex items-center justify-center text-red-300 text-xl shrink-0">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </span>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">3. Chính sách xóa tài khoản</h3>
+                        <span class="text-xs text-red-200/90">(Tài khoản không hoạt động)</span>
+                    </div>
+                </div>
+                <p class="text-xs text-blue-100 mb-4 leading-relaxed">
+                    Dù dữ liệu không bị xóa khi hết hạn gói, nhưng Dropbox áp dụng chính sách <strong class="text-white">Tài khoản không hoạt động:</strong>
+                </p>
+                <ul class="space-y-4 text-sm text-blue-50 leading-relaxed flex-1">
+                    <li class="flex items-start">
+                        <i class="fas fa-exclamation-circle text-red-400 mt-1 mr-3 shrink-0"></i>
+                        <div>
+                            Nếu bạn để tài khoản ở trạng thái vượt dung lượng và <strong class="text-white">không đăng nhập trong vòng 12 tháng</strong>, Dropbox có thể gửi email cảnh báo và sau đó tiến hành xóa vĩnh viễn dữ liệu hoặc toàn bộ tài khoản.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-300 mt-1 mr-3 shrink-0"></i>
+                        <div>
+                            <strong class="text-white">Mẹo an toàn:</strong> Chỉ cần bạn thỉnh thoảng đăng nhập vào trang web Dropbox là tài khoản vẫn được tính là đang hoạt động.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="lien-he" class="max-w-4xl mx-auto px-4 py-20 text-center">
+        <div class="glass-card rounded-3xl p-10 md:p-16 border-blue-400/30 shadow-2xl relative overflow-hidden">
+            <!-- Hiệu ứng ánh sáng nền cho phần liên hệ -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 opacity-50"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-4xl font-bold text-white">Cần Hỗ Trợ Hoặc Mua Các Gói?</h2>
+                <p class="text-blue-100 mt-4 max-w-lg mx-auto leading-relaxed">Nếu bạn cần tư vấn loại tài khoản phù hợp hoặc muốn mua ngay, hãy liên hệ với chúng tôi.</p>
+                
+                <div class="mt-12 flex justify-center">
+                    <a href="https://t.me/dropboxgiagoc?direct" target="_blank" class="inline-flex items-center glossy-btn text-white font-semibold py-4 px-10 rounded-xl transition shadow-lg text-lg">
+                        <i class="fab fa-telegram mr-3 text-2xl"></i> Liên Hệ Trực Tiếp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/20 text-blue-200 py-10 border-t border-white/5 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <i class="fab fa-dropbox text-white text-5xl mb-4"></i>
+            <p>&copy; 2026 DropboxStore. Bản quyền giao diện thuộc về hệ thống DropboxStore.</p>
+            <p class="mt-1 text-xs text-blue-300/70">Cung cấp giải pháp lưu trữ đám mây tối ưu.</p>
+        </div>
+    </footer>
+
+    <!-- Script ẩn/hiện header khi cuộn -->
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('main-header');
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Nếu cuộn xuống và đã cuộn qua 30px thì ẩn đi
+            if (scrollTop > lastScrollTop && scrollTop > 30) {
+                header.classList.add('-translate-y-full');
+            } else {
+                // Nếu cuộn lên thì hiện lại
+                header.classList.remove('-translate-y-full');
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Xử lý lỗi cuộn quá đà trên mobile
+        });
+    </script>
+</body>
+</html>
